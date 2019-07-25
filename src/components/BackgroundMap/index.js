@@ -12,20 +12,67 @@ export class BackgroundMap extends React.Component {
     super(props);
 
     this.state = {
-      stores: [{lat: 47.49855629475769, lng: -122.14184416996333},
-              {latitude: 47.359423, longitude: -122.021071},
-              {latitude: 47.2052192687988, longitude: -121.988426208496},
-              {latitude: 47.6307081, longitude: -122.1434325},
-              {latitude: 47.3084488, longitude: -122.2140121},
-              {latitude: 47.5524695, longitude: -122.0425407}]
+      cities: [
+        { 
+          city: 'NaplesFL', 
+          latitude: 26.14,  
+          longitude: -81.79,
+          info: 'Retire in Naples' 
+        },{ 
+          city: 'Arenal', 
+          latitude: 10.46, 
+          longitude: -84.70,
+          info: 'Retire in Arenal' 
+        },{ 
+          city: 'Cebu', 
+          latitude: 10.31, 
+          longitude: 123.88,
+          info: 'Retire in Cebu' 
+        },{ 
+          city: 'Cuenca', 
+          latitude: -2.90, 
+          longitude: -79.00,
+          info: 'Retire in Cuenca' 
+        },{ 
+          city: 'Ubud', 
+          latitude: -8.50, 
+          longitude: 115.26,
+          info: 'Retire in Ubud' 
+        },{ 
+          city: 'Krabi', 
+          latitude: 8.08, 
+          longitude: 98.90,
+          info: 'Retire in Krabi' 
+        },{ 
+          city: 'CittaDiCastello', 
+          latitude: 43.46, 
+          longitude: 12.24,
+          info: 'Retire in Citta Di Castello' 
+        },{ 
+          city: 'Granada', 
+          latitude: 37.17, 
+          longitude: -3.59,
+          info: 'Retire in Granade' 
+        },{ 
+          city: 'Phoenix', 
+          latitude: 33.44, 
+          longitude: -112.07,
+          info: 'Retire in Pheonix' 
+        },{ 
+          city: 'Goa', 
+          latitude: 15.29, 
+          longitude: 74.12,
+          info: 'Retire in Goa' 
+        }
+      ]
     }
   }
 
   displayMarkers = () => {
-    return this.state.stores.map((store, index) => {
+    return this.state.cities.map((city, index) => {
       return <Marker key={index} id={index} position={{
-       lat: store.latitude,
-       lng: store.longitude
+       lat: city.latitude,
+       lng: city.longitude
      }}
      onClick={() => console.log("You clicked me!")} />
     })
@@ -35,9 +82,9 @@ export class BackgroundMap extends React.Component {
     return (
         <Map
           google={this.props.google}
-          zoom={8}
+          zoom={3}
           style={mapStyles}
-          // initialCenter={{ lat: 47.444, lng: -122.176}}
+          initialCenter={{ lat: 0, lng: 0 }}
           >
           {this.displayMarkers()}
         </Map>

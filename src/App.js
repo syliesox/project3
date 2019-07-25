@@ -6,10 +6,10 @@ import Nav from './components/Nav';
 function App() {
   return (
     <div>
-      <Nav></Nav>
-      <BackgroundMap>
+    <Nav></Nav>
+    <BackgroundMap>
 
-      </BackgroundMap>
+    </BackgroundMap>
     </div>
   );
 }
