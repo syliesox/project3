@@ -1,0 +1,20 @@
+.transparent {
+    background: rgba(255, 255, 255, 0.65);
+  }
+
+form{
+    background: lightblue;
+    border-radius: 15px;
+}
+.getStarted{
+    margin-left:20px;
+    margin-top: 10px
+}
+.submitBtn{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.form-control{
+    margin-left: 20px;
+    width: 95%
+}

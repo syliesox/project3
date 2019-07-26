@@ -3,7 +3,8 @@ import API from "../utils/API";
 import Jumbotron from "../components/BackgroundMap";
 import { Container, Row, Col } from "../components/ResultsGrid";
 import InputForm from "../components/InputForm";
-import SavedResult from "../components/SavedResult"
+import SavedResult from "../components/SavedResult";
+import GetStarted from "../components/GetStarted"
 
 
 class MainPage extends Component {
