@@ -1,24 +1,24 @@
 import React from "react";
 import "./style.css";
 
-const SearchForm = props => {
+function GetStarted() {
     return (
-        <form>
-            <div className="form-group">
-                <label className="SearchLabel"><h2>Looking for Retirement Solutions?</h2></label>
-                <label className="SearchLabel"><h3>Retire Abroad with the Global Retirement Calculator!</h3></label>
-                <br></br>
-                <input className="col-12 form-control"
-                    value={props.search}
-                    type="text"
-                    name="searchBook"
-                    placeholder="yes"
-                    onChange={props.handleInputChange}
-                />
+    <div class="col-md-6 solution">
+    <div class="solution-header">
+        <h3 id="description-header">Looking for Retirement Solutions?</h3>
+            
+         <h5>Retire abroad with the Global Retirement Calculator!</h5>
+      
+    </div>
+
+    <div class="panel-info" id="add-panel">
+        <div class="panel-heading"></div>
+            <div class="panel-body">
+                <button class="btn btn-info" id="submit-btn" type="submit">Yes!</button>
             </div>
-            <button type="submit" className="submitBtn btn btn-primary" onClick={props.handleFormSubmit}>
-                Yes!
-            </button>
-        </form>
+        </div>
+    </div>
     )
 }
+
+export default GetStarted;

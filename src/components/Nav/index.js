@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Nav() {
     return (
     <div class="container-fluid sticky-top">
@@ -17,7 +18,9 @@ function Nav() {
           </div>
         <div class="col-xl-2 bg-white"></div>
     </div>
+  
 </div>
+
 
     );
 }
