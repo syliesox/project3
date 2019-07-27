@@ -81,7 +81,7 @@ export class BackgroundMap extends React.Component {
 
   render() {
     return (
-      
+
         <Map
           google={this.props.google}
           zoom={3}
@@ -89,11 +89,10 @@ export class BackgroundMap extends React.Component {
           initialCenter={{ lat: 0, lng: 0 }}
           >
           {this.displayMarkers()}
+
           <GetStarted />
         </Map>
-    
     );
-
   }
 }
 
