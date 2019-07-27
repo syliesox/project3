@@ -1,5 +1,6 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import GetStarted from '../GetStarted';
 
 const mapStyles = {
   width: '100%',
@@ -80,6 +81,7 @@ export class BackgroundMap extends React.Component {
 
   render() {
     return (
+
         <Map
           google={this.props.google}
           zoom={3}
@@ -87,11 +89,12 @@ export class BackgroundMap extends React.Component {
           initialCenter={{ lat: 0, lng: 0 }}
           >
           {this.displayMarkers()}
+
+          <GetStarted />
         </Map>
     );
   }
 }
-
 
   export default GoogleApiWrapper({
     apiKey: 'AIzaSyC8uif52RrLx8YwlraL_banSZYCEZ3bz-E'
