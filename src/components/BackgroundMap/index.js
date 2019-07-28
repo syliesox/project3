@@ -1,6 +1,7 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import GetStarted from '../GetStarted';
+// import InputForm from '../InputForm';
 
 const mapStyles = {
   width: '100%',
@@ -65,7 +66,8 @@ export class BackgroundMap extends React.Component {
           longitude: 74.12,
           info: 'Retire in Goa' 
         }
-      ]
+      ],
+      
     }
   }
 
@@ -91,6 +93,7 @@ export class BackgroundMap extends React.Component {
           {this.displayMarkers()}
 
           <GetStarted />
+          {/* <InputForm /> */}
         </Map>
     );
   }

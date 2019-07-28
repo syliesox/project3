@@ -11,7 +11,7 @@ function Nav() {
                 <h2 className="text-blue">Global Retirement Calculator</h2> 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
-                        <li> <a href="https://travel.state.gov/content/travel/en/international-travel/while-abroad/retirement-abroad.html" target="_blank"> Global Retirement Considerations </a></li>
+                        <li> <a href="https://travel.state.gov/content/travel/en/international-travel/while-abroad/retirement-abroad.html" target="_blank" rel="noopener noreferrer"> Global Retirement Considerations </a></li>
                     </ul>   
                 </div>
             </nav>

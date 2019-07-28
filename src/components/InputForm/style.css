@@ -1,0 +1,18 @@
+.solution-header {
+    border-radius: 45px;
+    background: rgba(255, 255, 255, 0.65);
+    height: 22vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:50px;
+    margin-top: 75px;
+}
+
+.info-header {
+    background: rgba(255, 255, 255, 0.65);
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 45px;
+}
+
