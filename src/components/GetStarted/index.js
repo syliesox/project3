@@ -12,7 +12,9 @@ class GetStarted extends React.Component {
         };
         this.showInfoForm = this.showInfoForm.bind(this);
     }
-    showInfoForm = () => {
+
+    showInfoForm = (event) => {
+        event.preventDefault();
         const {showInfo} = this.state;
         this.setState( { showInfo: !showInfo } )
     }
