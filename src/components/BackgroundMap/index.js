@@ -10,8 +10,9 @@ const mapStyles = {
 export class BackgroundMap extends React.Component {
 
   constructor(props) {
+    
     super(props);
-
+    
     this.state = {
       cities: [
         { 
@@ -80,6 +81,7 @@ export class BackgroundMap extends React.Component {
   }
 
   render() {
+    
     return (
 
         <Map
@@ -95,6 +97,7 @@ export class BackgroundMap extends React.Component {
     );
   }
 }
+
 
   export default GoogleApiWrapper({
     apiKey: 'AIzaSyC8uif52RrLx8YwlraL_banSZYCEZ3bz-E'
