@@ -1,8 +1,26 @@
 import React from 'react';
 // import { withRouter } from 'react-router-dom';
 import "./style.css";
+import InputForm from '../InputForm';
 
 class Table extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            showInfoForm: false,
+
+        };
+    }
+    
+    onClick(e) {
+        e.preventDefault();
+        this.setState({
+            showInfoForm: !this.showInfoForm
+        })
+        
+    }
+
     render() {
         return (
             // User Input and Database info being displayed
@@ -29,7 +47,16 @@ class Table extends React.Component {
                                     <tbody>
                                     </tbody>
                                 </table>
+                                <button onClick={ (e) => this.onClick(e) } className="btn btn-info float-right" id="info-btn">Add New City</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="inputForm">
+                            {  this.state.showInfoForm && <InputForm />  }
                         </div>
                     </div>
                 </div>
