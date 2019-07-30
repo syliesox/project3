@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import { withRouter } from 'react-router-dom';
 import "./style.css";
 
@@ -11,7 +11,7 @@ class Table extends React.Component {
                     <div className="col-md-12">
         
                         {/* Current User Info */}
-                        <div className="card mb-4 transparent">
+                        <div className="card mb-4 table-header">
                             <div className="card-header"><h2>Your Retirement Info</h2></div>
                             <div className="card-body">
                                 <table className="table table-sm table-hover" id='scenario-table'>

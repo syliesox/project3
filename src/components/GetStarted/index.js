@@ -7,47 +7,31 @@ class GetStarted extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showInfo: false
-            // showStart: true
+            showInfo: false,
+            hideStart: false
         };
-        this.showInfoForm = this.showInfoForm.bind(this);
     }
 
-    showInfoForm = (event) => {
-        event.preventDefault();
-        const {showInfo} = this.state;
-        this.setState( { showInfo: !showInfo } )
+    onClick(e) {
+        e.preventDefault();
+        this.setState({
+            showInfo: !this.showInfo,
+            hideStart: !this.hideStart
+        })
     }
-
-    // showGetStarted = () => {
-    //     const {showStart} = this.state;
-    //     this.setState( { showStart: !showStart } )
-    // }
-
-    // class Test extends React.Component {
-    //     onClick(event) {
-    //         showInfoForm();
-    //         showGetStarted();
-    //     }
-    //     render() {
-    //         return (
-    //            <button onClick={this.onClick}>GetStarted</button>
-    //         );
-    //      }
-    // }
 
 
     render() {
+        const {hideStart} = this.state;
         return (
             <div>
                 <div className="row">
                     <div className="col-md-3"></div>
                     <div className="col-md-6 solution">
-                        <div className="solution-header"> 
+                        <div className={`solution-header ${hideStart ? 'hide' : ''}`}> 
                             <h3>Global Retirement Solutions</h3>
                             <div className="panel-body">
-                                <button onClick={ this.showInfoForm } className="btn btn-info" id="submit-btn" type="submit">Get Started</button>
-                                
+                                <button onClick={ (e) => this.onClick(e) } className="btn btn-info" id="submit-btn" type="submit">Get Started</button>
                             </div>
                         </div>
 
