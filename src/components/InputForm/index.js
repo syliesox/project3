@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import { withRouter } from 'react-router-dom';
 // import axios from 'axios';
 import "./style.css";
@@ -10,33 +10,31 @@ class InputForm extends React.Component {
         super(props);
         this.state = {
             showTable: false,
+            hideInfoForm: false,
             assets: '',
             income: '',
             age: ''
 
         };
-        this.showTable = this.showTable.bind(this);
     }
     
-    showTable = (event) => {
-        event.preventDefault();
-        const {showTable} = this.state;
-        this.setState( { showTable: !showTable } )
-    }
-
-    handleChange = (event) => {
+    onClick(e) {
+        e.preventDefault();
         this.setState({
-            [event.target.name]: event.target.value
+            showTable: !this.showTable,
+            hideInfoForm: !this.hideInfoForm
         })
+        
     }
 
     render() {
+        const {hideInfoForm} = this.state;
         return (
             <div>
                 <div className="row">
                     <div class="col-md-12">
                         {/* Add User Info */}
-                        <div className="card mb-4 info-header">
+                        <div className={`card mb-4 info-header ${hideInfoForm ? 'hide' : ''}`}>
                             <div className="card-header"><h2>Add Your Info</h2></div>
                             <div className="card-body">
 
@@ -72,7 +70,7 @@ class InputForm extends React.Component {
                                         </form>
                                     </div>
 
-                                    <button onClick={ this.showTable } className="btn btn-info float-right" id="info-btn">Submit</button>
+                                    <button onClick={ (e) => this.onClick(e) } className="btn btn-info float-right" id="info-btn">Submit</button>
                                 </form>
 
                             </div>
