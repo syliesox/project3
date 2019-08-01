@@ -9,19 +9,21 @@ class Table extends React.Component {
         super(props);
         this.state = {
             showInfoForm: false,
-
+            hideTable: false
         };
     }
     
     onClick(e) {
         e.preventDefault();
         this.setState({
-            showInfoForm: !this.showInfoForm
+            showInfoForm: !this.showInfoForm,
+            hideTable: !this.hideTable
         })
         
     }
 
     render() {
+        const {hideTable} = this.state;
         return (
             // User Input and Database info being displayed
             <div className="container user-info">
@@ -29,7 +31,7 @@ class Table extends React.Component {
                     <div className="col-md-12">
         
                         {/* Current User Info */}
-                        <div className="card mb-4 table-header">
+                        <div className={`card mb-4 table-header ${hideTable ? 'hide' : ''}`}>
                             <div className="card-header"><h2>Your Retirement Info</h2></div>
                             <div className="card-body">
                                 <table className="table table-sm table-hover" id='scenario-table'>

@@ -45,4 +45,8 @@ tr{
     border-radius: 45px;
   }
 
+  hide {
+    display: none;
+  }
+
   
