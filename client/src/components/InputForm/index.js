@@ -13,9 +13,10 @@ class InputForm extends React.Component {
             hideInfoForm: false,
             assets: '',
             income: '',
-            age: ''
-
+            age: '',
+            city: ''
         };
+        this.handleChange = this.handleChange.bind(this);
     }
     
     onClick(e) {
@@ -24,7 +25,15 @@ class InputForm extends React.Component {
             showTable: !this.showTable,
             hideInfoForm: !this.hideInfoForm
         })
-        
+        console.log(this.state.assets);
+        console.log(this.state.income);
+        console.log(this.state.age);
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     render() {
@@ -32,7 +41,7 @@ class InputForm extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <div class="col-md-12">
+                    <div className="col-md-12">
                         {/* Add User Info */}
                         <div className={`card mb-4 info-header ${hideInfoForm ? 'hide' : ''}`}>
                             <div className="card-header"><h2>Add Your Info</h2></div>
@@ -41,21 +50,22 @@ class InputForm extends React.Component {
                                 {/* Entry Form */}
                                 <form>
                                     <div className="form-group">
-                                        <label for="assets-input">IRA/401k Assets [$]</label>
-                                        <input name="assets" onChange={this.handleChange} value="this.state.assets" className="form-control" id="assets-input" type="number" min="0" placeholder="Enter an amount here" />
+                                        <p>{this.state.assets}</p>
+                                        <label name="assets-input">IRA/401k Assets [$]</label>
+                                        <input name="assets" onChange={this.handleChange} value={this.state.assets} className="form-control" id="assets-input" type="number" min="0" placeholder="Enter an amount here" />
                                     </div>
                                     <div className="form-group">
-                                        <label for="income-input">Average Annual Retirement Income [$]</label>
-                                        <input name="income" onChange={this.handleChange} value="this.state.income" className="form-control" id="income-input" type="number" min="0" placeholder="Enter an amount here"/>
+                                        <label name="income-input">Average Annual Retirement Income [$]</label>
+                                        <input name="income" onChange={this.handleChange} value={this.state.income} className="form-control" id="income-input" type="number" min="0" placeholder="Enter an amount here"/>
                                     </div>
                                     <div className="form-group">
-                                        <label for="retirement-age-input">Desired Retirement Age</label>
-                                        <input name="age" onChange={this.handleChange} value="this.state.age" className="form-control" id="retirement-age-input" type="number" min="0" max="80" placeholder="Enter a number here"/>
+                                        <label name="retirement-age-input">Desired Retirement Age</label>
+                                        <input name="age" onChange={this.handleChange} value={this.state.age} className="form-control" id="retirement-age-input" type="number" min="0" max="80" placeholder="Enter your age here"/>
                                     </div>
                                     <div className="form-group">
-                                        <label for="city-input">City</label>
-                                        <form>
-                                            <select id="city-select">
+                                        <label name="city-input">City</label>
+                                        {/* <form> */}
+                                            <select name="city" value={this.state.city} onChange={this.handleChange} id="city-select">
                                                 <option value="Naples, Italy">Naples, Italy</option>
                                                 <option value="Dubai, United arab Emirates">Dubai, United Arab Emirates</option>
                                                 <option value="Cebu, Philippines">Cebu, Philippines</option>
@@ -67,7 +77,7 @@ class InputForm extends React.Component {
                                                 <option value="Phoenix, Arizona">Phoenix, Arizona</option>
                                                 <option value="Goa, India">Goa, India</option>
                                             </select>
-                                        </form>
+                                        {/* </form> */}
                                     </div>
 
                                     <button onClick={ (e) => this.onClick(e) } className="btn btn-info float-right" id="info-btn">Submit</button>
