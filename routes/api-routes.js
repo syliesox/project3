@@ -4,7 +4,7 @@
 
 // Dependencies
 // =============================================================
-var Scenarios = require("../models/scenarios.js");
+var Scenarios = require("../db/models/Scenario.js");
 
 // Routes
 // =============================================================
