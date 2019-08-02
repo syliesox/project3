@@ -17,36 +17,26 @@ export default {
     // },
 
     // Saves city info to the database
-    saveCity: function (savedCity) {
-        console.log (savedCity)
-        return axios.post("/api/cities", savedCities);
+    // saveCity: function (savedCity) {
+    //     console.log (savedCity)
+    //     return axios.post("/api/cities", savedCities);
+    // },
+
+    // // Deletes city info with the given id
+    // deleteCity: function (id) {
+    //     return axios.delete("/api/cities/" + id);
+    // }
+
+    // Gets the scenarios with the given username
+    getScenario: function(id) {
+      return axios.get("/api/scenarios/" + id);
     },
-
-    // Deletes city info with the given id
-    deleteCity: function (id) {
-        return axios.delete("/api/cities/" + id);
+    // Deletes the scenario with the given id
+    deleteScenario: function(id) {
+      return axios.delete("/api/scenarios/" + id);
+    },
+    // Saves a scenario to the database
+    saveScenario: function(scenarioData) {
+      return axios.post("/api/scenarios", scenarioData);
     }
-
 }
-
-------
-import axios from "axios";
-
-export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
-  },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
-  },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
-  },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
-  }
-};
