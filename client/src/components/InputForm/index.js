@@ -1,6 +1,7 @@
 import React from 'react';
 // import { withRouter } from 'react-router-dom';
 // import axios from 'axios';
+import API from "../../utils/API";
 import "./style.css";
 import Table from '../Table';
 
@@ -28,6 +29,15 @@ class InputForm extends React.Component {
         console.log(this.state.assets);
         console.log(this.state.income);
         console.log(this.state.age);
+
+        API.saveScenario({
+            user_name: "username",
+            total_assets: this.state.assets,
+            income_in_retirement: this.state.income,
+            retirement_age: this.state.age,
+            target_city: "Naples, Italy"
+        })
+
     }
 
     handleChange = (event) => {
