@@ -1,11 +1,13 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import GetStarted from '../GetStarted';
+// import GetStarted from '../GetStarted';
 // import InputForm from '../InputForm';
 
 const mapStyles = {
   width: '100%',
   height: '100%',
+  backgroundAttachment: 'fixed',
+  backgroundSize: 'cover'
 };
 
 export class BackgroundMap extends React.Component {
@@ -92,7 +94,7 @@ export class BackgroundMap extends React.Component {
           >
           {this.displayMarkers()}
 
-          <GetStarted />
+          {/* <GetStarted /> */}
           {/* <InputForm /> */}
         </Map>
     );

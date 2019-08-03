@@ -1,113 +1,155 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Jumbotron from "../components/BackgroundMap";
-import { Container, Row, Col } from "../components/ResultsGrid";
-import InputForm from "../components/InputForm";
-import SavedResult from "../components/SavedResult";
-// import GetStarted from "../components/GetStarted"
+// import BackgroundMap from '../components/BackgroundMap';
+import { GetStarted } from "../components/GetStarted";
+import { Col, Row, Container } from "../components/Grid";
+import { Input, SelectCity, FormBtn } from "../components/InputForm";
+import "./MainPage.css";
+import Table from "../components/Table";
+
 
 class MainPage extends Component {
- // Setting our component's initial state
+
     state = {
-        scenarios: [],
+        userData: [],
         assets: "",
         income: "",
-        age: ""
+        age: "",
+        city: ""
+    }
+
+    componentDidMount() {
+        this.loadScenario();
+      }
+
+    loadScenario = () => {
+        API.getScenario()
+          .then(res =>
+            this.setState({ userData: res.data, assets: "", income: "", age: "" })
+          )
+          .catch(err => console.log(err));
+      };
+
+    deleteScenario = id => {
+    API.deleteScenario(id)
+        .then(res => this.loadScenario())
+        .catch(err => console.log(err));
     };
 
-    // state = {
-    //     search: "",
-    //     results: [],
-    //     error: "",
-    //     message: ""
-    // };
-
-
-    //function to take value of what enter in the search bar
     handleInputChange = event => {
-        this.setState({ search: event.target.value })
-    }
+        this.setState({
+          [event.target.name]: event.target.value
+        });
+      };
 
-    //function to control the submit button of the search form 
     handleFormSubmit = event => {
-        event.preventDefault();
-        // if (this.state.assets && this.state.age) {
-        // API.saveScenario({
-        //     "user_name": "username",
-        //     total_assets: this.state.assets,
-        //     income_in_retirement: this.state.income,
-        //     retirement_age: this.state.age,
-        //     "target_city": "Naples, Italy"
-        // })
-        // .then(alert("saved"))
-        //     // .then(res => this.loadScenarios())
-        //     .catch(err => console.log(err));
-        // }
-    };
-    // once it clicks it connects to the Numbeo api with the search value
-    /* API.getNumbeo(this.state.search)
-        .then(res => {
-            if (res.data.items === "error") {
-                throw new Error(res.data.items);
-            }
-            else {
-                // store response in a array
-                let results = res.data.items
-                //map through the array 
-                results = results.map(result => {
-                    //store each API information in a new object 
-                    result = {
-                        key: result.id,
-                        id: result.id,
-                        title: result.volumeInfo.title,
-                        author: result.volumeInfo.authors,
-                        description: result.volumeInfo.description,
-                        image: result.volumeInfo.imageLinks.thumbnail,
-                        link: result.volumeInfo.infoLink
-                    }
-                    return result;
-                })
-                // reset the state of the empty API array to the new arrays of objects with properties geting back from the response
-                this.setState({ apiInfo: results, error: "" })
-            }
+    event.preventDefault();
+    if (this.state.assets && this.state.income && this.state.age) {
+        API.saveScenario({
+        assets: this.state.assets,
+        income: this.state.income,
+        age: this.state.age
         })
-        .catch(err => this.setState({ error: err.items }));
-}  */
-
-    handleSavedButton = event => {
-        // console.log(event)
-        event.preventDefault();
-        console.log(this.state.apiInfo)
-        let savedApiInfo = this.state.apiInfo.filter(retirement => retirement.id === event.target.id)
-        savedApiInfo = savedApiInfo[0];
-        API.saveInfo(savedApiInfo)
-            .then(this.setState({ message: alert("Your retirement info is saved") }))
-            .catch(err => console.log(err))
+        .then(res => this.loadScenario())
+        .catch(err => console.log(err));
     }
+    };
+
     render() {
         return (
-            <Container fluid>
-                <Jumbotron>
-                    <h1 className="text-white">Retire Abroad with the Global Retirement Calculator!</h1>
-                </Jumbotron>
-                <Container>
+            <div className='wrapper'>
+                {/* <BackgroundMap /> */}
+                <Container fluid>
                     <Row>
-                        <Col size="12">
-                            <InputForm
-                                handleFormSubmit={this.handleFormSubmit}
-                                handleInputChange={this.handleInputChange}
-                            />
+                        <Col className='offset-2' size='md-8 get-started'>
+                            <GetStarted />
+                        </Col>
+                    </Row>
+                    <Row >
+                        <Col size='md-12 form'>
+                            <form>
+                                <h3>Add Info</h3>
+                                {/* User input assets */}
+                                <label name="assets-input">IRA/401k Assets [$]</label>
+                                <Input
+                                    value={this.state.assets}
+                                    onChange={this.handleInputChange}
+                                    name="assets"
+                                    type="number"
+                                    placeholder="Enter amount here (required)"
+                                />
+                                {/* User input retirement income */}
+                                <label name="income-input">Average Annual Retirement Income [$]</label>
+                                <Input
+                                    value={this.state.income}
+                                    onChange={this.handleInputChange}
+                                    name="income"
+                                    type="number"
+                                    placeholder="Enter amount here (required)"
+                                />
+                                {/* User input age */}
+                                <label name="retirement-age-input">Desired Retirement Age</label>
+                                <Input
+                                    value={this.state.age}
+                                    onChange={this.handleInputChange}
+                                    name="age"
+                                    type="number"
+                                    placeholder="Enter age here (required)"
+                                />
+                                {/* User input city */}
+                                <label name="city-input">Select Desired City</label>
+                                <SelectCity
+                                    value={this.state.city}
+                                    onChange={this.handleInputChange}
+                                    name="city"
+                                />
+                                <FormBtn
+                                disabled={!(this.state.assets && this.state.income && this.state.age)}
+                                onClick={this.handleFormSubmit}
+                                >
+                                Submit
+                                </FormBtn>
+                            </form>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col size='md-12 table' >
+
+                            <Table userData={this.state.userData} />
+
+                            {/* OR */}
+
+                            {/* <div>
+                                <div className="card-header">
+                                    <h2>Your Retirement Info</h2>
+                                    <p>Click on a city's name to see info about that city.</p>
+                                </div>
+                                <div className="card-body">
+                                    <table className="table table-sm table-hover" id='scenario-table'>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" className='col-xs-8' id="col1">Assets</th>
+                                                <th scope="col" className='col-xs-2' id="col2">Income In<br />Retirement</th>
+                                                <th scope="col" className='col-xs-1' id="col3">Retirement<br />Age</th>
+                                                <th scope="col" className='col-xs-2' id="col4">City</th>
+                                                <th scope="col" className='col-xs-2' id="col5">Retirement<br />Fund</th>
+                                                <th scope="col" className='col-xs-2' id="col6">Need</th>
+                                                <th scope="col" className='col-xs-2' id="col6">Delete</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {/* <DeleteBtn /> */}
+                                        {/* </tbody>
+                                    </table>
+                                </div> */}
+                            {/* </div> */}
                         </Col>
                     </Row>
                 </Container>
-                <br></br>
-                <Container>
-                    <SavedResult apiInfo={this.state.apiInfo} handleSavedButton={this.handleSavedButton} />
-                </Container>
-            </Container>
-        )
+            </div>
+        );
     }
-
 
 }
 
