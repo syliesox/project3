@@ -1,0 +1,9 @@
+.container {
+    margin: 10%;
+}
+
+.get-started, .form, .table {
+    background: rgba(255, 255, 255, 0.65);
+    margin: 5% 10% 5% 10%;
+    border-radius: 45px;
+}
