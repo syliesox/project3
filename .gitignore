@@ -1,3 +1,6 @@
+node_modules
+keyes.js
+
 # Logs
 logs
 *.log

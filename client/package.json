@@ -5,14 +5,16 @@
   "proxy": "http://localhost:5000/",
   "dependencies": {
     "express": "^4.17.1",
-    "mysql2": "^1.6.5",
     "google-maps-react": "^2.0.2",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-google": "^0.3.0",
+    "passport-google-oauth20": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "sequelize": "^5.10.2"
-
   },
   "scripts": {
     "start": "react-scripts start",
