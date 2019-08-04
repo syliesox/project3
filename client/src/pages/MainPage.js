@@ -46,9 +46,11 @@ class MainPage extends Component {
     event.preventDefault();
     if (this.state.assets && this.state.income && this.state.age) {
         API.saveScenario({
-        assets: this.state.assets,
-        income: this.state.income,
-        age: this.state.age
+        user_name: "username",
+        total_assets: this.state.assets,
+        income_in_retirement: this.state.income,
+        retirement_age: this.state.age,
+        target_city: "New Orleans"
         })
         .then(res => this.loadScenario())
         .catch(err => console.log(err));

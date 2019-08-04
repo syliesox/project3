@@ -37,10 +37,7 @@ export default {
     },
     // Saves a scenario to the database
     saveScenario: function (scenarioData) {
-        alert(scenarioData.user_name + scenarioData.total_assets
-            + scenarioData.income_in_retirement + scenarioData.retirement_age + scenarioData.target_city)
-
-            ;
+        alert(scenarioData.total_assets+ " "+scenarioData.income_in_retirement+" "+scenarioData.retirement_age+" "+scenarioData.target_city);
         console.log(scenarioData);
         return axios.post("/api/scenarios", scenarioData);
     }
