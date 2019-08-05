@@ -42,7 +42,7 @@
   #banner {
       padding: 12px;
       width:1440px;
-      box-shadow: 0 0 6px #4285f4;
+      box-shadow: 0 0 7px #4285f4;
   }
   
   .google-btn-container {
@@ -57,4 +57,5 @@
 
   .text-blue {
       padding-left: 100px;
+    
   }
