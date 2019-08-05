@@ -41,7 +41,8 @@
 
   #banner {
       padding: 12px;
-      width:1075px;
+      width:1440px;
+      box-shadow: 0 0 6px #4285f4;
   }
   
   .google-btn-container {
@@ -52,4 +53,8 @@
 
   .navbar-nav {
       padding-right: 120px;
+  }
+
+  .text-blue {
+      padding-left: 100px;
   }

@@ -8,7 +8,7 @@ function Nav() {
     <div className="container-fluid sticky-top">
     <div className="row">
         <div className="col-xl-2 bg-white"></div>
-          <div className="col-xl-8 px-0">
+          <div className="col-xl-12 px-0">
             <nav className="navbar navbar-expand-sm navbar-light bg-white"id="banner">  
                 <h4 className="text-blue">Retirement Calculator</h4> 
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">

@@ -29,8 +29,8 @@ passport.use(
                 if (existingUser) {
                     done(null, existingUser);
                     //already have record w/ this profile ID
-                } else {
-                    new User({
+            } else {
+                
                 //don't have a record with giver ID
                 new User({ googleId: profile.id }).save()
                     .then(user => done(null, user));
