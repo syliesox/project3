@@ -13,7 +13,7 @@ const cookieSession = require("cookie-session");
 const auth = require("./routes/api/auth");
 const keys = require('./config/keys');
 
-//required for authentication ***ORDER IS IMPORTANT//
+//required for authentication ORDER IS IMPORTANT//
 require('./model/User');
 require('./services/passport');
 

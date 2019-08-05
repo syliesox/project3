@@ -9,3 +9,7 @@ module.exports = {
 module.exports = {
     numeoKey: 'gfc0idlc9cvrs2',
 }
+
+module.exports = {
+    cookieKey: "Group4_Rocks",
+}
