@@ -13,3 +13,7 @@ div.col-get-started {
 .wrapper {
     margin: 5%;
 }
+
+table.thead.tr.th {
+    text-align: center;
+}

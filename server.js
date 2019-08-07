@@ -11,7 +11,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view.
+// Add routes.
 app.use("/api",routes);
 
 // Connect to the Mongo DB.  This is now in connection-config.js
