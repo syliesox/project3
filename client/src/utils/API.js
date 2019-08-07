@@ -27,6 +27,11 @@ export default {
     //     return axios.delete("/api/cities/" + id);
     // }
 
+    // Gets all scenarios
+    getScenarios: function () {
+    return axios.get("/api/scenarios");
+},
+
     // Gets the scenarios with the given username
     getScenario: function (id) {
         return axios.get("/api/scenarios/" + id);
