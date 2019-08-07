@@ -4,5 +4,6 @@ module.exports = {
     googleMapKey: 'AIzaSyC8uif52RrLx8YwlraL_banSZYCEZ3bz-E',
     numeoKey: 'gfc0idlc9cvrs2',
     cookieKey: "Group4_Rocks",
-    mongoURI: 'mongodb://localhost/retirementDB'
+    // mongoURI: 'mongodb://localhost/retirementDB'
+    mongoURI: 'mongodb+srv://j22shelton:<Swordfish7%26>@globalretirementcalculator-lkcxf.mongodb.net/test?retryWrites=true&w=majority'
 }

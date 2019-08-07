@@ -11,6 +11,7 @@ const keys = require('./config/keys');
 //required for authentication ORDER IS IMPORTANT//
 require('./db/models/User');
 require('./services/passport');
+// require('./models/User');
 
 mongoose.connect(keys.mongoURI);
 const app = express();
