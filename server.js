@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view.
 app.use("/api",routes);
 
-app.use(routes);
+//app.use(routes);
 
 // Connect to the Mongo DB.  This is now in connection-config.js
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/retirementDB");

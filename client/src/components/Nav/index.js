@@ -17,7 +17,8 @@ function Nav() {
                     </ul>   
                 </div>
                 <div className="google-btn-container">
-                    <a href="/auth/google">
+                    <a href="http://localhost:5000/auth/google">
+                    
                       <div className="google-btn">
                         <div className="google-icon-wrapper">
                           <img
