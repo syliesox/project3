@@ -1,0 +1,15 @@
+div.col-get-started, div.col-form, div.col-table {
+    background: rgba(255, 255, 255, 0.65);
+    /* margin: 1% 10% 5% 10%; */
+    margin-top: 25px;
+    border-radius: 25px;
+    padding: 10px 30px 10px 30px;
+}
+
+div.col-get-started {
+    margin-top: 25px;
+}
+
+.wrapper {
+    margin: 5%;
+}

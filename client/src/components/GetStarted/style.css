@@ -2,8 +2,8 @@
 .solution-header{
     border-radius: 45px;
     background: rgba(255, 255, 255, 0.65);
-    height: 22vh; 
-    display: flex;
+    /* height: 22vh;  */
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     margin-left:50px;
