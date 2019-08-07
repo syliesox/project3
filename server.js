@@ -5,9 +5,7 @@ const routes = require("./routes/api");
 //***lines below are required for authenication***//
 const bodyParser = require('body-parser');
 const passport = require("passport");
-// const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const cookieSession = require("cookie-session");
-// const auth = require("./routes/authRoutes");
 const keys = require('./config/keys');
 
 //required for authentication ORDER IS IMPORTANT//
@@ -28,24 +26,6 @@ app.use(passport.session());
 
 require('./routes/authRoutes') (app);
 
-//console.developers.google.com
-// passport.use(
-//   new GoogleStrategy({
-//     clientID: keys.googleClientID,
-//     clientSecret: keys.googleClientSecret,
-// // client ID hidden
-// // Client Secret hidden
-
-//     callbackURL: '/auth/google/callback'
-//   }, 
-//   (accessToken, refreshToken, profile, done) => {
-//     console.log('access token', accessToken);
-//     console.log('refresh token', refreshToken);
-//     console.log('profile:', profile);
-//   }
-//  )
-// );
-
 const PORT = process.env.PORT || 5000;
 
 // Defining middleware.
@@ -62,9 +42,16 @@ app.use(routes);
 
 // Connect to the Mongo DB.  This is now in connection-config.js
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/retirementDB");
-cookieKey: "Group4_Rocks"
+cookieKey: keys.cookieKey,
 
 // Start the server.
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+// app.get(
+//   '/auth/google', 
+//   passport.authenticate('google', {
+//        scope: ['profile', 'email']
+// })
+// );
