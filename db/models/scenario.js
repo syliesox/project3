@@ -17,6 +17,7 @@ const scenarioSchema = new Schema({
     income_in_retirement: { type: Number, required: true },
     retirement_age: { type: Number, required: true },
     target_city: { type: String, trim: true, required: true },
+    city_cpir:{ type: Number, required: true },
     createdAt: { type: Date, default: Date.now },
 });
 

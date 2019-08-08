@@ -7,10 +7,13 @@ import { Input, FormBtn } from "../components/InputForm";
 import Select from 'react-select';
 import "./MainPage.css";
 // import Table from "../components/Table";
-// import { List, ListItem } from "../components/Table";
+// import { List, ListItem } from "../components/List";
 import { Link } from "react-router-dom";
 import DeleteBtn from '../components/DeleteBtn';
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+
+const cityname = "New Orleans, Louisiana"
+var cpir;
 
 const cities = [
     { label: "Naples, Italy", value: "Naples, Italy" },
@@ -25,8 +28,13 @@ const cities = [
     { label: "Goa, India", value: "Goa, India" },
 ];
 
-class MainPage extends Component {
+const AtlantaCpiR = 59.6549832654245;
+const AtlantaMin = 50000;
 
+// By extending the React.Component class, MainPage inherits functionality from it
+class MainPage extends React.Component {
+
+// Setting the initial state of the MainPage component
     state = {
         userData: [],
         id: "",
@@ -36,50 +44,94 @@ class MainPage extends Component {
         city: ""
     }
 
-    
-
     componentDidMount() {
-        this.loadScenario();
-      }
+        this.loadScenarios();
+    }
 
-    loadScenario = () => {
+    loadScenarios = () => {
         API.getScenarios()
-          .then(res =>
-            this.setState({ userData: res.data, assets: "", income: "", age: "" })
-          )
-          .catch(err => console.log(err));
-      };
+            .then(res =>
+                this.setState({ userData: res.data, assets: "", income: "", age: "", city: "" })
+            )
+            .catch(err => console.log(err));
+    };
+
+    // loadNumbeo = () => {
+    //     API.getNumbeo(cityName)
+    //       .then(res =>
+    //         this.setState({ userData: res.data, assets: "", income: "", age: "",  city: ""})
+    //       )
+    //       .catch(err => console.log(err));
+    //   };
 
     deleteScenario = id => {
-    API.deleteScenario(id)
-        .then(res => this.loadScenario())
-        .catch(err => console.log(err));
+        API.deleteScenario(id)
+            .then(res => this.loadScenarios())
+            .catch(err => console.log(err));
     };
 
     handleInputChange = event => {
         this.setState({
-          [event.target.name]: event.target.value
+            [event.target.name]: event.target.value
         });
+    };
+
+    handleChange = city => {
+        this.setState({ city });
+        // console.log(`Option selected:`, selectedOption);
       };
 
     handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.assets && this.state.income && this.state.age) {
-        API.saveScenario({
-        user_name: "username",
-        _id: this.state.id,
-        total_assets: this.state.assets,
-        income_in_retirement: this.state.income,
-        retirement_age: this.state.age,
-        target_city: this.state.city
-        })
-        .then(res => this.loadScenario())
-        .catch(err => console.log(err));
-    }
+        event.preventDefault();
+        if (this.state.assets && this.state.income && this.state.age) {
+            if (cityname === "Naples, Italy"){
+                cpir = 40.65343800624011;
+            }
+            else if (cityname === "Dubai, United arab Emirates"){
+                cpir = 60.344308883038124;
+            }
+            else if (cityname === "Cebu, Philippines"){
+                cpir = 24.68352402508564;
+            }
+            else if (cityname === "Shanghai, China"){
+                cpir = 41.3093973241673;
+            }
+            else if (cityname === "Manchester, United Kingdom"){
+                cpir = 47.33519074664601;
+            }
+            else if (cityname === "Casablanca, Morocco"){
+                cpir = 25.37699284160013;                ;
+            }
+            else if (cityname === "New Orleans, Louisiana"){
+                cpir = 63.194776006844265;
+            }
+            else if (cityname === "Granada, Spain"){
+                cpir = 37.49249300604065;
+            }
+            else if (cityname === "Phoenix, Arizona"){
+                cpir = 51.57627856974486;
+            }
+            else if (cityname === "Goa, India"){
+                cpir = 16.734851081616867;
+            }
+    
+            API.saveScenario({
+                user_name: "username",
+                // _id: this.state.id,
+                total_assets: this.state.assets,
+                income_in_retirement: this.state.income,
+                retirement_age: this.state.age,
+                target_city: cityname,
+                city_cpir: cpir
+            })
+                .then(res => this.loadScenarios())
+                .catch(err => console.log(err));
+        }
     };
 
+// The render method returns the JSX that should be rendered
     render() {
-        
+        const { city } = this.state;
         return (
             <div className='wrapper'>
                 {/* <BackgroundMap /> */}
@@ -89,8 +141,9 @@ class MainPage extends Component {
                             <GetStarted />
                         </Col>
                     </Row>
-                    <Row >
-                        <Col size='md-12 form'>
+
+                    <Row>
+                        <Col size='md-8 form'>
                             <form>
                                 <h3>Add Info</h3>
                                 {/* User input assets */}
@@ -122,46 +175,60 @@ class MainPage extends Component {
                                 />
                                 {/* User input city */}
                                 <label name="city-input">Select Desired City</label>
-                                <Select options={ cities } />
+
+                                <Select
+                                    onChange={this.handleChange}
+                                    options={ cities }
+                                    name="city"
+                                    value={this.state.city}
+                                />
+
+
                                 <FormBtn
-                                disabled={!(this.state.assets && this.state.income && this.state.age)}
-                                onClick={this.handleFormSubmit}
+                                    disabled={!(this.state.assets && this.state.income && this.state.age)}
+                                    onClick={this.handleFormSubmit}
                                 >
-                                Submit
+                                    Submit
                                 </FormBtn>
                             </form>
                         </Col>
                     </Row>
                     <Row>
-                        <Col size='md-12 table' >
+                        <Col size='md-8 table' >
                             <table>
                                 <thead>
                                     <tr>
-                                        <th scope="col" value="assets" className='col-md-2' id="col1">Assets</th>
-                                        <th scope="col" value="income" className='col-md-2' id="col2">Income In<br />Retirement</th>
-                                        <th scope="col" value="age" className='col-md-2' id="col3">Retirement<br />Age</th>
-                                        <th scope="col" value="city" className='col-md-3' id="col4">City</th>
-                                        <th scope="col" value="funds" className='col-md-2' id="col5">Retirement<br />Fund</th>
-                                        <th scope="col" value="need" className='col-md-2' id="col6">Need</th>
-                                        <th scope="col" value="delete" className='col-md-1' id="col6">Delete</th>
+                                        <th scope="col" value="assets" id="col1">Total<br />Assets<br />[$]</th>
+                                        <th scope="col" value="income" id="col2">Annual<br />Retirement<br />Income [$/yr]</th>
+                                        <th scope="col" value="age" id="col3">Age<br />at<br />Retirement</th>
+                                        <th scope="col" value="city" id="col4"><br /><br />City</th>
+                                        <th scope="col" value="funds" id="col5">Retirement<br />Fund<br />[$]</th>
+                                        <th scope="col" value="need" id="col6"><br />Need<br />[$]</th>
+                                        <th scope="col" value="delete" id="col7"><br /><br />Delete</th>
                                     </tr>
                                 </thead>
 
                                 {this.state.userData.length ? (
                                     this.state.userData.map(scenario => (
-                                        <tr>
-                                            <td>{scenario.total_assets}</td>
-                                            <td>{scenario.income_in_retirement}</td>
+                                        <tr key={scenario._id}>
+                                            <td>{(scenario.total_assets).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}</td>
+                                            <td>{(scenario.income_in_retirement).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}</td>
                                             <td>{scenario.retirement_age}</td>
-                                            <td><Link to={"/city/" + scenario._id}>{scenario.target_city}</Link></td>
-                                            <td>funds</td>
-                                            <td>need</td>
-                                            <td><DeleteBtn onClick={() => this.deleteScenario(scenario._id)} /></td>
+                                            <td><Link to={"/city/" + scenario.target_city}>{scenario.target_city}</Link></td>
+                                            <td>{(scenario.total_assets + (80 - scenario.retirement_age) * scenario.income_in_retirement).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}</td>
+                                            <td> {((80 - scenario.retirement_age) * AtlantaMin * scenario.city_cpir / AtlantaCpiR).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}
+                    
+                                            </td>
+                                            <td>
+
+                         
+
+                                            <DeleteBtn onClick={() => this.deleteScenario(scenario._id)} /></td>
                                         </tr>
                                     ))
                                 ) : (
-                                    <h3>No results to display yet!</h3>
-                                )}
+                                        <h3>No results to display yet!</h3>
+                                    )}
                             </table>
                         </Col>
                     </Row>

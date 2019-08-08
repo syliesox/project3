@@ -5,10 +5,13 @@ var db = require("../db/models");
 module.exports = {
   // Find all scenarios, sort them by date, send them back to the user
   findAll: function(req, res) {
+    console.log("hello from findALL");
+    // console.log(db.Scenario.find(req.query));  checked OK
     db.Scenario
       .find(req.query)
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {console.log(dbModel); res.json(dbModel)})
+      // .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   // findById: function(req, res) {
