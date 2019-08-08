@@ -85,7 +85,7 @@ class MainPage extends Component {
                 {/* <BackgroundMap /> */}
                 <Container fluid>
                     <Row>
-                        <Col className='offset-2' size='md-8 get-started'>
+                        <Col size='md-8 get-started'>
                             <GetStarted />
                         </Col>
                     </Row>
@@ -153,10 +153,10 @@ class MainPage extends Component {
                                             <td>{scenario.total_assets}</td>
                                             <td>{scenario.income_in_retirement}</td>
                                             <td>{scenario.retirement_age}</td>
-                                            <td><Link to={"/scenarios/" + scenario._id}>{scenario.target_city}</Link></td>
+                                            <td><Link to={"/city/" + scenario._id}>{scenario.target_city}</Link></td>
                                             <td>funds</td>
                                             <td>need</td>
-                                            <td><DeleteBtn /></td>
+                                            <td><DeleteBtn onClick={() => this.deleteScenario(scenario._id)} /></td>
                                         </tr>
                                     ))
                                 ) : (
