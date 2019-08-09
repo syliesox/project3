@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import API from "../utils/API";
 // import BackgroundMap from '../components/BackgroundMap';
 import { GetStarted } from "../components/GetStarted";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/InputForm";
-import Select from 'react-select';
 import "./MainPage.css";
 // import Table from "../components/Table";
 // import { List, ListItem } from "../components/List";
@@ -122,7 +121,7 @@ class MainPage extends React.Component {
 
 // The render method returns the JSX that should be rendered
     render() {
-        const { city } = this.state;
+        
         return (
             <div className='wrapper'>
                 {/* <BackgroundMap /> */}
@@ -211,7 +210,7 @@ class MainPage extends React.Component {
                                             <td>{(scenario.total_assets).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}</td>
                                             <td>{(scenario.income_in_retirement).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}</td>
                                             <td>{scenario.retirement_age}</td>
-                                            <td><Link to={"/city/" + scenario.target_city}>{scenario.target_city}</Link></td>
+                                            <td><Link to={"/city/" + scenario._id}>{scenario.target_city}</Link></td>
                                             <td>{(scenario.total_assets + (80 - scenario.retirement_age) * scenario.income_in_retirement).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}</td>
                                             <td> {((80 - scenario.retirement_age) * AtlantaMin * scenario.city_cpir / AtlantaCpiR).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}</td>
                                             <td><DeleteBtn onClick={() => this.deleteScenario(scenario._id)} /></td>
