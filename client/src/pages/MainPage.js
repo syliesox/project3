@@ -9,18 +9,31 @@ import Table from "../components/Table";
 
 
 class MainPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userData: [],
+            assets: "",
+            income: "",
+            age: "",
+            city: "",
+            isAuthenticated: false
+        }
 
-    state = {
-        userData: [],
-        assets: "",
-        income: "",
-        age: "",
-        city: ""
+        this.fetchUserStatus = this.fetchUserStatus.bind(this);
     }
 
     componentDidMount() {
         this.loadScenario();
+        this.fetchUserStatus();
       }
+
+    fetchUserStatus() {
+        API.getLoginStatus().then(res => 
+        // console.log(res)
+           this.setState({ isAuthenticated: res.data ? true : false })    
+        );
+    }
 
     loadScenario = () => {
         API.getScenario()
@@ -65,6 +78,7 @@ class MainPage extends Component {
                             <GetStarted />
                         </Col>
                     </Row>
+                    {this.state.isAuthenticated && 
                     <Row >
                         <Col size='md-12 form'>
                             <form>
@@ -112,6 +126,8 @@ class MainPage extends Component {
                             </form>
                         </Col>
                     </Row>
+                    }
+                    {this.state.isAuthenticated &&
                     <Row>
                         <Col size='md-12 table' >
 
@@ -146,6 +162,7 @@ class MainPage extends Component {
                             {/* </div> */}
                         </Col>
                     </Row>
+                    }
                 </Container>
             </div>
         );

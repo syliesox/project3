@@ -43,6 +43,9 @@ export default {
             ;
         console.log(scenarioData);
         return axios.post("/api/scenarios", scenarioData);
-    }
+    },
+    getLoginStatus: () => {
+        return axios.get("/api/current_user");
+    } 
 }
 
