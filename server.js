@@ -1,19 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes/api");
-
-//***lines below are required for authenication***//
-const bodyParser = require('body-parser');
-const passport = require("passport");
-const cookieSession = require("cookie-session");
-const keys = require('./config/keys');
-
-//required for authentication ORDER IS IMPORTANT//
-require('./db/models/User');
-require('./services/passport');
-// require('./models/User');
-
-mongoose.connect(keys.mongoURI);
 const app = express();
 
 app.use(
@@ -36,10 +23,8 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view.
+// Add routes.
 app.use("/api",routes);
-
-//app.use(routes);
 
 // Connect to the Mongo DB.  This is now in connection-config.js
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/retirementDB");
