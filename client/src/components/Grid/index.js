@@ -1,6 +1,19 @@
 import React from "react";
 
-// Exporting the Container, Row, and Col components from this file
+// Exporting the Jumbotron, Container, Row, and Col components from this file
+
+function Jumbotron({ children }) {
+  return (
+    <div
+      style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
+      className="jumbotron"
+    >
+      {children}
+    </div>
+  );
+}
+
+export default Jumbotron;
 
 // This Container component allows us to use a bootstrap container without worrying about class names
 export function Container({ fluid, children }) {
