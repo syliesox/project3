@@ -4,10 +4,12 @@ import "./style.css";
 
 export function GetStarted(props) {
     return (
-      <div>
-        <h3>Welcome to your Global Retirement Solutions!</h3>
-        <p>Enter in your info, and pick a city to get started!</p>
-        <p>Compare multiple cities in the table below.</p>
+      
+      <div> 
+        <h3>Welcome to Global Retirement Solutions. </h3>
+          <h3>  Get started now!</h3>
+        {/* <p>Enter in your info, and pick a city to get started!</p>
+        <p>Compare multiple cities in the table below.</p> */}
       </div>
     );
   }
