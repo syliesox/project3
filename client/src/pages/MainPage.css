@@ -17,3 +17,29 @@ div.col-get-started {
 table.thead.tr.th {
     text-align: center;
 }
+
+#col1, #col3, #col5, #col6 {
+    width: 110px;
+    align-content: center;
+}
+
+#col7 {
+    width: 50px;
+    align-content: right;
+}
+
+#col2 {
+    width: 130px;
+    align-content: center;
+}
+
+#col4 {
+    width: 240px;
+    align-content: center;
+}
+
+td, th{
+    text-align: center;
+    align-content: center;
+}
+
