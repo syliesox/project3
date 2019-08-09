@@ -12,21 +12,7 @@ import { Link } from "react-router-dom";
 import DeleteBtn from '../components/DeleteBtn';
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-const cityname = "New Orleans, Louisiana"
 var cpir;
-
-const cities = [
-    { label: "Naples, Italy", value: "Naples, Italy" },
-    { label: "Dubai, United arab Emirates", value: "Dubai, United arab Emirates" },
-    { label: "Cebu, Philippines", value: "Cebu, Philippines" },
-    { label: "Shanghai, China", value: "Shanghai, China" },
-    { label: "Manchester, United Kingdom", value: "Manchester, United Kingdom" },
-    { label: "Casablanca, Morocco", value: "Casablanca, Morocco" },
-    { label: "New Orleans, Louisiana", value: "New Orleans, Louisiana" },
-    { label: "Granada, Spain", value: "Granada, Spain" },
-    { label: "Phoenix, Arizona", value: "Phoenix, Arizona" },
-    { label: "Goa, India", value: "Goa, India" },
-];
 
 const AtlantaCpiR = 59.6549832654245;
 const AtlantaMin = 50000;
@@ -41,7 +27,7 @@ class MainPage extends React.Component {
         assets: "",
         income: "",
         age: "",
-        city: ""
+        cityname: ""
     }
 
     componentDidMount() {
@@ -51,7 +37,7 @@ class MainPage extends React.Component {
     loadScenarios = () => {
         API.getScenarios()
             .then(res =>
-                this.setState({ userData: res.data, assets: "", income: "", age: "", city: "" })
+                this.setState({ userData: res.data, assets: "", income: "", age: "", cityname: "" })
             )
             .catch(err => console.log(err));
     };
@@ -76,12 +62,17 @@ class MainPage extends React.Component {
         });
     };
 
-    handleChange = city => {
-        this.setState({ city });
-        // console.log(`Option selected:`, selectedOption);
-      };
+    // handleChange = city => {
+    //     this.setState({ city });
+    //     console.log(`Option selected:`, selectedOption);
+    //   };
+
+    handleDropdownChange(event) {
+    this.setState({ cityname: event.target.value });
+    }
 
     handleFormSubmit = event => {
+        const cityname = this.state.cityname;
         event.preventDefault();
         if (this.state.assets && this.state.income && this.state.age) {
             if (cityname === "Naples, Italy"){
@@ -176,13 +167,19 @@ class MainPage extends React.Component {
                                 {/* User input city */}
                                 <label name="city-input">Select Desired City</label>
 
-                                <Select
-                                    onChange={this.handleChange}
-                                    options={ cities }
-                                    name="city"
-                                    value={this.state.city}
-                                />
-
+                                <select id="dropdown" onChange={this.handleDropdownChange.bind(this)}>
+                                    <option value="select">--- Select a City ---</option>
+                                    <option value="Naples, Italy">Naples, Italy</option>
+                                    <option value="Dubai, United arab Emirates">Dubai, United arab Emirates</option>
+                                    <option value="Cebu, Philippines">Cebu, Philippines</option>
+                                    <option value="Shanghai, China">Shanghai, China</option>
+                                    <option value="Manchester, United Kingdom">Manchester, United Kingdom</option>
+                                    <option value="Casablanca, Morocco">Casablanca, Morocco</option>
+                                    <option value="New Orleans, Louisiana">New Orleans, Louisiana</option>
+                                    <option value="Granada, Spain">Granada, Spain</option>
+                                    <option value="Phoenix, Arizona">Phoenix, Arizona</option>
+                                    <option value="Goa, India">Goa, India</option>
+                                </select>
 
                                 <FormBtn
                                     disabled={!(this.state.assets && this.state.income && this.state.age)}
@@ -216,14 +213,8 @@ class MainPage extends React.Component {
                                             <td>{scenario.retirement_age}</td>
                                             <td><Link to={"/city/" + scenario.target_city}>{scenario.target_city}</Link></td>
                                             <td>{(scenario.total_assets + (80 - scenario.retirement_age) * scenario.income_in_retirement).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}</td>
-                                            <td> {((80 - scenario.retirement_age) * AtlantaMin * scenario.city_cpir / AtlantaCpiR).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}
-                    
-                                            </td>
-                                            <td>
-
-                         
-
-                                            <DeleteBtn onClick={() => this.deleteScenario(scenario._id)} /></td>
+                                            <td> {((80 - scenario.retirement_age) * AtlantaMin * scenario.city_cpir / AtlantaCpiR).toLocaleString(navigator.language, { maximumFractionDigits: 0 })}</td>
+                                            <td><DeleteBtn onClick={() => this.deleteScenario(scenario._id)} /></td>
                                         </tr>
                                     ))
                                 ) : (
