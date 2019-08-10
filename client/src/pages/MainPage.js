@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import API from "../utils/API";
 // import BackgroundMap from '../components/BackgroundMap';
+import Nav from "../components/Nav"
 import { GetStarted } from "../components/GetStarted";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/InputForm";
@@ -123,6 +124,8 @@ class MainPage extends Component {
     render() {
         
         return (
+            <div>
+            <Nav isAuthenticated = {this.state.isAuthenticated}/>
             <div className='wrapper'>
                 {/* <BackgroundMap /> */}
                 <Container fluid>
@@ -226,9 +229,11 @@ class MainPage extends Component {
                     </Row>
                     }
                 </Container>
+                </div>
             </div>
-        );
-    }
+         );
+        
+    }  //render
 
 }
 
