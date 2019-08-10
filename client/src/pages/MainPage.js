@@ -5,7 +5,7 @@ import { GetStarted } from "../components/GetStarted";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, SelectCity, FormBtn } from "../components/InputForm";
 import "./MainPage.css";
-import Table from "../components/Table";
+// import Table from "../components/Table";
 
 
 class MainPage extends Component {
@@ -131,7 +131,7 @@ class MainPage extends Component {
                     <Row>
                         <Col size='md-12 table' >
 
-                            <Table userData={this.state.userData} />
+                            {/* <Table userData={this.state.userData} /> */}
 
                             {/* OR */}
 
