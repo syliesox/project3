@@ -45,6 +45,9 @@ export default {
         alert(scenarioData.total_assets+ " "+scenarioData.income_in_retirement+" "+scenarioData.retirement_age+" "+scenarioData.target_city);
         console.log(scenarioData);
         return axios.post("/api/scenarios", scenarioData);
-    }
+    },
+    getLoginStatus: () => {
+        return axios.get("/api/current_user");
+    } 
 }
 

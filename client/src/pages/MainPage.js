@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import API from "../utils/API";
 // import BackgroundMap from '../components/BackgroundMap';
 import { GetStarted } from "../components/GetStarted";
@@ -12,42 +12,42 @@ import DeleteBtn from '../components/DeleteBtn';
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 var cpir;
-
 const AtlantaCpiR = 59.6549832654245;
 const AtlantaMin = 50000;
+class MainPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userData: [],
+            assets: "",
+            income: "",
+            age: "",
+            cityname: "",
+            isAuthenticated: false
+        }
 
-// By extending the React.Component class, MainPage inherits functionality from it
-class MainPage extends React.Component {
-
-// Setting the initial state of the MainPage component
-    state = {
-        userData: [],
-        id: "",
-        assets: "",
-        income: "",
-        age: "",
-        cityname: ""
+        this.fetchUserStatus = this.fetchUserStatus.bind(this);
     }
 
     componentDidMount() {
-        this.loadScenarios();
+        this.loadScenario();
+        this.fetchUserStatus();
+      }
+
+    fetchUserStatus() {
+        API.getLoginStatus().then(res => 
+        // console.log(res)
+           this.setState({ isAuthenticated: res.data ? true : false })    
+        );
     }
 
-    loadScenarios = () => {
-        API.getScenarios()
-            .then(res =>
-                this.setState({ userData: res.data, assets: "", income: "", age: "", cityname: "" })
-            )
-            .catch(err => console.log(err));
-    };
-
-    // loadNumbeo = () => {
-    //     API.getNumbeo(cityName)
-    //       .then(res =>
-    //         this.setState({ userData: res.data, assets: "", income: "", age: "",  city: ""})
-    //       )
-    //       .catch(err => console.log(err));
-    //   };
+    loadScenario = () => {
+        API.getScenario()
+          .then(res =>
+            this.setState({ userData: res.data, assets: "", income: "", age: "" })
+          )
+          .catch(err => console.log(err));
+      };
 
     deleteScenario = id => {
         API.deleteScenario(id)
@@ -131,9 +131,9 @@ class MainPage extends React.Component {
                             <GetStarted />
                         </Col>
                     </Row>
-
-                    <Row>
-                        <Col size='md-8 form'>
+                    {this.state.isAuthenticated && 
+                    <Row >
+                        <Col size='md-12 form'>
                             <form>
                                 <h3>Add Info</h3>
                                 {/* User input assets */}
@@ -189,6 +189,8 @@ class MainPage extends React.Component {
                             </form>
                         </Col>
                     </Row>
+                    }
+                    {this.state.isAuthenticated &&
                     <Row>
                         <Col size='md-8 table' >
                             <table>
@@ -222,6 +224,7 @@ class MainPage extends React.Component {
                             </table>
                         </Col>
                     </Row>
+                    }
                 </Container>
             </div>
         );
