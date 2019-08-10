@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/syliesox/project3/static/css/main.dcfe47b0.chunk.css",
+    "main.js": "/syliesox/project3/static/js/main.f1b966b1.chunk.js",
+    "main.js.map": "/syliesox/project3/static/js/main.f1b966b1.chunk.js.map",
+    "runtime~main.js": "/syliesox/project3/static/js/runtime~main.80404520.js",
+    "runtime~main.js.map": "/syliesox/project3/static/js/runtime~main.80404520.js.map",
+    "static/js/2.5532b7e5.chunk.js": "/syliesox/project3/static/js/2.5532b7e5.chunk.js",
+    "static/js/2.5532b7e5.chunk.js.map": "/syliesox/project3/static/js/2.5532b7e5.chunk.js.map",
+    "index.html": "/syliesox/project3/index.html",
+    "precache-manifest.bf011d09fb70b2c7e5e264cd24106c0b.js": "/syliesox/project3/precache-manifest.bf011d09fb70b2c7e5e264cd24106c0b.js",
+    "service-worker.js": "/syliesox/project3/service-worker.js",
+    "static/css/main.dcfe47b0.chunk.css.map": "/syliesox/project3/static/css/main.dcfe47b0.chunk.css.map"
+  }
+}

@@ -1,0 +1,45 @@
+div.col-get-started, div.col-form, div.col-table {
+    background: rgba(255, 255, 255, 0.65);
+    /* margin: 1% 10% 5% 10%; */
+    margin-top: 25px;
+    border-radius: 25px;
+    padding: 10px 30px 10px 30px;
+}
+
+div.col-get-started {
+    margin-top: 25px;
+}
+
+.wrapper {
+    margin: 5%;
+}
+
+table.thead.tr.th {
+    text-align: center;
+}
+
+#col1, #col3, #col5, #col6 {
+    width: 110px;
+    align-content: center;
+}
+
+#col7 {
+    width: 50px;
+    align-content: right;
+}
+
+#col2 {
+    width: 130px;
+    align-content: center;
+}
+
+#col4 {
+    width: 240px;
+    align-content: center;
+}
+
+td, th{
+    text-align: center;
+    align-content: center;
+}
+
