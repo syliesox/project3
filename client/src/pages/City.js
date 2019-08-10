@@ -7,7 +7,7 @@ import Jumbotron from "../components/Grid";
 
 class City extends Component {
   state = {
-    scenario: {}
+    scenario: []
   };
 
   // When this component mounts, grab the scenario with the _id of this.props.match.params.id
