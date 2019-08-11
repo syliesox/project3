@@ -14,6 +14,10 @@ div.col-get-started {
     margin: 5%;
 }
 
+.container-shadow {
+    box-shadow: 10px 10px 5px grey;
+}
+
 table.thead.tr.th {
     text-align: center;
 }

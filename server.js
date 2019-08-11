@@ -41,7 +41,7 @@ app.use("/api",routes);
 app.use(routes);
 
 // Connect to the Mongo DB.  This is now in connection-config.js
-mongoose.connect(process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds161517.mlab.com:61517/heroku_217tj3z4");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/retirementDB");
 
 cookieKey: keys.cookieKey,
 

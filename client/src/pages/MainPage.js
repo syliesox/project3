@@ -83,7 +83,7 @@ class MainPage extends Component {
             if (cityname === "Naples, Italy"){
                 cpir = 40.65343800624011;
             }
-            else if (cityname === "Dubai, United arab Emirates"){
+            else if (cityname === "Dubai, United Arab Emirates"){
                 cpir = 60.344308883038124;
             }
             else if (cityname === "Cebu, Philippines"){
@@ -135,14 +135,14 @@ class MainPage extends Component {
                         {this.state.isAuthenticated === false && 
                         <Row>
                             <Col className='offset-2' size='md-8 get-started'>
-                                <Login />
+                                <Login className="container-shadow" />
                             </Col>
                         </Row>
                         }
                         {this.state.isAuthenticated && 
                         <Row>
                             <Col className='offset-2' size='md-8 get-started'>
-                                <GetStarted />
+                                <GetStarted className="container-shadow" />
                             </Col>
                         </Row>
                         }
@@ -184,7 +184,7 @@ class MainPage extends Component {
                                     <select id="dropdown" onChange={this.handleDropdownChange.bind(this)}>
                                         <option value="select">--- Select a City ---</option>
                                         <option value="Naples, Italy">Naples, Italy</option>
-                                        <option value="Dubai, United arab Emirates">Dubai, United arab Emirates</option>
+                                        <option value="Dubai, United Arab Emirates">Dubai, United Arab Emirates</option>
                                         <option value="Cebu, Philippines">Cebu, Philippines</option>
                                         <option value="Shanghai, China">Shanghai, China</option>
                                         <option value="Manchester, United Kingdom">Manchester, United Kingdom</option>
