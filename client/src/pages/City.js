@@ -13,6 +13,7 @@ class City extends Component {
   // When this component mounts, grab the scenario with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
+    console.log(this.props.match.params)
     API.getScenario(this.props.match.params.id)
       .then(res => this.setState({ scenario: res.data }))
       .catch(err => console.log(err));
@@ -24,6 +25,7 @@ class City extends Component {
             <Row>
                 <Col size='md-12 city-info'>
                     <Jumbotron className="jumbotron">
+                        <h3>{this.state.scenario.id}</h3>
                         <h3>{this.state.scenario.cityname}</h3>
                     </Jumbotron>
                 </Col>

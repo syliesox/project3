@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 // import BackgroundMap from './components/BackgroundMap';
-// import Nav from './components/Nav';
+import Nav from './components/Nav';
 import MainPage from './pages/MainPage';
 import City from './pages/City';
 // import Table from './components/Table';
@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <Nav /> */}
+        <Nav />
         {/* <BackgroundMap> */}
           <Switch>
             <Route exact path="/" component={MainPage} />

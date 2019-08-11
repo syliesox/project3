@@ -9,7 +9,7 @@ router.route("/")
 // Matches with "/api/scenarios/:id"
 router
   .route("/:id")
-  // .get(scenariosController.findById)
+  .get(scenariosController.findById)
   // .put(scenariosController.update)
   .delete(scenariosController.remove);
 
