@@ -1,13 +1,14 @@
 import React from "react";
 import "./style.css";
 // import { NavLink } from 'react-router-dom';
-const PORT = process.env.PORT || 5000;
+
+const url = process.env.HOST || 'http://localhost:5000';
 
 function Nav(props) {
     const renderLoginBtn = () => {
       if (props.isAuthenticated) {
         return (
-            <a href={"http://localhost:" + PORT + "/api/logout"}>
+            <a href={url + "/api/logout"}>
               <div className="google-btn">
                 <div className="google-icon-wrapper">
                   <img
@@ -25,7 +26,7 @@ function Nav(props) {
         )
       } else {
         return (
-          <a href={"http://localhost:" + PORT + "/auth/google"}>
+          <a href={url + "/auth/google"}>
             <div className="google-btn">
               <div className="google-icon-wrapper">
                 <img
