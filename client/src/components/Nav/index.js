@@ -2,7 +2,9 @@ import React from "react";
 import "./style.css";
 // import { NavLink } from 'react-router-dom';
 
-const url = process.env.HOST || 'http://localhost:5000';
+const production  = 'https://retirement-calculator-24.herokuapp.com';
+const development = 'http://localhost:5000';
+const url = (process.env.NODE_ENV ? production : development);
 
 function Nav(props) {
     const renderLoginBtn = () => {
