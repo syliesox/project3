@@ -30,7 +30,7 @@ export default {
     // Gets all scenarios
     getScenarios: function () {
     return axios.get("/api/scenarios");
-},
+    },
 
     // Gets the scenarios with the given username
     getScenario: function (id) {
@@ -42,9 +42,12 @@ export default {
     },
     // Saves a scenario to the database
     saveScenario: function (scenarioData) {
-        alert(scenarioData.total_assets+ " "+scenarioData.income_in_retirement+" "+scenarioData.retirement_age+" "+scenarioData.target_city);
+        // alert(scenarioData.total_assets+ " "+scenarioData.income_in_retirement+" "+scenarioData.retirement_age+" "+scenarioData.target_city);
         console.log(scenarioData);
         return axios.post("/api/scenarios", scenarioData);
-    }
+    },
+    getLoginStatus: () => {
+        return axios.get("/api/current_user");
+    } 
 }
 
