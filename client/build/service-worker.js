@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/syliesox/project3/precache-manifest.e7f3390c23c413a1c3e1cb4d7660372f.js"
+  "/syliesox/project3/precache-manifest.151bcca4fb3f3d024f0e90213e720805.js"
 );
 
 self.addEventListener('message', (event) => {
