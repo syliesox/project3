@@ -4,13 +4,9 @@
 
 ### Description
 
-This project consists of creative retirement solutions using data integrated from multiple server-side API requests, including GoogleMaps and Numbeo, as well as data stored in Mongo database.
+This project consists of creative retirement solutions and uses API requests along with React and Mongo database. The user signs in and inputs specific details into the input fields, then clicks "submit". Then the Numbeo API pulls information pertaining to 10 specific cities and JQuery/Javascript code computes retirement results based on data points of Social Security/Pension, 401k/IRA retirement assets, and desired retirement Age compared to a life expectancy estimate of 80. The results indicates to the user the total amount of funds currently needed to retire in a specific location. The information is also saved to the Mongo database.
 
-The user inputs specific details into the input fields and clicks "submit". Then the Numbeo API pulls information pertaining to 10 specific cities and JQuery/Javascript code computes retirement results based on data points of Social Security/Pension, 401k/IRA retirement assets, and desired retirement Age compared to a financially conservative life expectancy estimate of 80. The results indicats to the user if their current savings are sufficient to retire in a specific location or not.
-
-GoogleMaps API is used as the background, with pins dropped on each of 10 possible retirement locations through an array and loop.
-
-A header was included that links the a government site with comprehensive advice and resources for US Citizens planning to retire abroad.
+The app also includes a link to a government site with comprehensive advice and resources for US Citizens planning to retire abroad.
 
 
 ## Technologies Used
@@ -18,19 +14,27 @@ A header was included that links the a government site with comprehensive advice
 * ReactJS
 * NodeJS
 * ExpressJS
-* Mongo
+* Mongo/Mongoose
 * JSON
 * HTML
 * Bootstrap
-* API's (GoogleMaps and Numbeo)
+* API (Numbeo)
+* OAuth 2.0 Authentication
+* Passport Strategy
 * GitHub
+* Heroku deployment
 
 Agile development methodologies were used, including git branch workflow and pull requests
 
-## Link
+## Deployed Link
 
-- [Global Retirement Calculator](TBD)
+- [https://retirement-calculator-24.herokuapp.com/]
 
+## Contributors:
+
+ - [Phillip Hu](https://github.com/ph4044)
+ - [Julia Campbell](https://github.com/syliesox)
+ - [Jocelyn Shelton](https://github.com/j22shelton)
 
 #
 
