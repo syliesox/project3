@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/syliesox/project3/static/css/main.7ec39dcd.chunk.css",
-    "main.js": "/syliesox/project3/static/js/main.9e67f975.chunk.js",
-    "main.js.map": "/syliesox/project3/static/js/main.9e67f975.chunk.js.map",
+    "main.css": "/syliesox/project3/static/css/main.ac76a34c.chunk.css",
+    "main.js": "/syliesox/project3/static/js/main.cc550ef6.chunk.js",
+    "main.js.map": "/syliesox/project3/static/js/main.cc550ef6.chunk.js.map",
     "runtime~main.js": "/syliesox/project3/static/js/runtime~main.80404520.js",
     "runtime~main.js.map": "/syliesox/project3/static/js/runtime~main.80404520.js.map",
     "static/js/2.a884d0d3.chunk.js": "/syliesox/project3/static/js/2.a884d0d3.chunk.js",
     "static/js/2.a884d0d3.chunk.js.map": "/syliesox/project3/static/js/2.a884d0d3.chunk.js.map",
     "index.html": "/syliesox/project3/index.html",
-    "precache-manifest.e7f3390c23c413a1c3e1cb4d7660372f.js": "/syliesox/project3/precache-manifest.e7f3390c23c413a1c3e1cb4d7660372f.js",
+    "precache-manifest.151bcca4fb3f3d024f0e90213e720805.js": "/syliesox/project3/precache-manifest.151bcca4fb3f3d024f0e90213e720805.js",
     "service-worker.js": "/syliesox/project3/service-worker.js",
-    "static/css/main.7ec39dcd.chunk.css.map": "/syliesox/project3/static/css/main.7ec39dcd.chunk.css.map"
+    "static/css/main.ac76a34c.chunk.css.map": "/syliesox/project3/static/css/main.ac76a34c.chunk.css.map"
   }
 }
